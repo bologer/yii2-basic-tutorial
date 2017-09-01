@@ -191,3 +191,20 @@
 [Sat Aug 26 11:38:39.145621 2017] [:error] [pid 18250] [client 127.0.0.1:41391] PHP   5. yii\\debug\\LogTarget->export() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:118, referer: http://yii.loc/car/
 [Sat Aug 26 11:38:39.145632 2017] [:error] [pid 18250] [client 127.0.0.1:41391] PHP   6. yii\\debug\\LogTarget->updateIndexFile() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:63, referer: http://yii.loc/car/
 [Sat Aug 26 11:38:39.145642 2017] [:error] [pid 18250] [client 127.0.0.1:41391] PHP   7. touch() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:75, referer: http://yii.loc/car/
+[Sun Aug 27 13:26:24.864313 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP Warning:  file_put_contents(/var/www/yii-dev/runtime/debug/59a2ac60c52f6.data): failed to open stream: Permission denied in /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php on line 57, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865212 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP Stack trace:, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865246 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   1. yii\\base\\ErrorHandler->handleException() /var/www/yii-dev/vendor/yiisoft/yii2/base/ErrorHandler.php:0, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865261 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   2. yii\\log\\Logger->flush() /var/www/yii-dev/vendor/yiisoft/yii2/base/ErrorHandler.php:113, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865273 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   3. yii\\log\\Dispatcher->dispatch() /var/www/yii-dev/vendor/yiisoft/yii2/log/Logger.php:177, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865283 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   4. yii\\debug\\LogTarget->collect() /var/www/yii-dev/vendor/yiisoft/yii2/log/Dispatcher.php:188, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865294 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   5. yii\\debug\\LogTarget->export() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:118, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865314 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   6. file_put_contents() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:57, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865449 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP Warning:  touch(): Utime failed: Permission denied in /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php on line 75, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865458 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP Stack trace:, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865469 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   1. yii\\base\\ErrorHandler->handleException() /var/www/yii-dev/vendor/yiisoft/yii2/base/ErrorHandler.php:0, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865488 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   2. yii\\log\\Logger->flush() /var/www/yii-dev/vendor/yiisoft/yii2/base/ErrorHandler.php:113, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865500 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   3. yii\\log\\Dispatcher->dispatch() /var/www/yii-dev/vendor/yiisoft/yii2/log/Logger.php:177, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865510 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   4. yii\\debug\\LogTarget->collect() /var/www/yii-dev/vendor/yiisoft/yii2/log/Dispatcher.php:188, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865520 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   5. yii\\debug\\LogTarget->export() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:118, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865530 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   6. yii\\debug\\LogTarget->updateIndexFile() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:63, referer: http://yii.loc/
+[Sun Aug 27 13:26:24.865540 2017] [:error] [pid 16737] [client 127.0.0.1:50154] PHP   7. touch() /var/www/yii-dev/vendor/yiisoft/yii2-debug/LogTarget.php:75, referer: http://yii.loc/
