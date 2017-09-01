@@ -28,7 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'model',
             'description',
-            'created_at',
+            [
+                'attribute' => 'created_at',
+                'content' => function ($car) {
+                    return Yii::$app->formatter->asDate($car->created_at);
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
