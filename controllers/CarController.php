@@ -2,18 +2,36 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use app\models\Car;
 use app\models\search\CarSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 class CarController extends Controller
 {
+    /**
+     * @var null|User
+     */
+    private $_user = null;
+
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'view', 'create', 'delete'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -21,6 +39,17 @@ class CarController extends Controller
                 ],
             ],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeAction($action)
+    {
+        if ($this->_user === null)
+            $this->_user = Yii::$app->user->identity;
+
+        return parent::beforeAction($action);
     }
 
     /**
@@ -77,7 +106,14 @@ class CarController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->save()) {
+                Yii::info("Машина ID: {$model->id} была изменена {$this->_user->username}");
+            } else {
+                Yii::error("Машина ID: {$model->id} НЕ была изменена {$this->_user->username}. Возможные ошибки модели: " . json_encode($model->errors));
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -94,7 +130,15 @@ class CarController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+
+        $modelId = $model->id;
+
+        if ($model->delete()) {
+            Yii::info("Машина ID: {$modelId} была удалена {$this->_user->username}");
+        } else {
+            Yii::error("Машина ID: {$modelId} НЕ была удалена {$this->_user->username}. Возможные ошибки модели: " . json_encode($model->errors));
+        }
 
         return $this->redirect(['index']);
     }

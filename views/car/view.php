@@ -32,8 +32,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'model',
             'description',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'created_at',
+                'value' => function ($car) {
+                    return Yii::$app->formatter->asDate($car->created_at);
+                }
+            ],
+            [
+                'attribute' => 'created_at',
+                'value' => function ($car) {
+                    return Yii::$app->formatter->asDate($car->created_at);
+                }
+            ],
         ],
     ]) ?>
 
