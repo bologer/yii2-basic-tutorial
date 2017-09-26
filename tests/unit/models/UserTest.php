@@ -1,12 +1,29 @@
 <?php
 namespace tests\models;
+
 use app\models\User;
+use app\fixtures\User as UserFixture;
 
 class UserTest extends \Codeception\Test\Unit
 {
+
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    public function _before()
+    {
+        $this->tester->haveFixtures([
+            'clients' => [
+                'class' => UserFixture::className()
+            ]
+        ]);
+    }
+
     public function testFindUserById()
     {
-        expect_that($user = User::findIdentity(100));
+        expect_that($user = User::findIdentity(1));
         expect($user->username)->equals('admin');
 
         expect_not(User::findIdentity(999));
